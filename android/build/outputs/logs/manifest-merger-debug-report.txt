@@ -1,0 +1,61 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+	package
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:2:11-45
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:1-21:12
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:4:5-20:19
+service#com.nextly.rnprintconnect.RNSendIntentModule
+ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:5:9-7:43
+	android:exported
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:7:17-40
+	android:name
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:6:17-51
+provider#com.nextly.rnprintconnect.FileProvider
+ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:8:9-18:20
+	android:grantUriPermissions
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:12:17-51
+	android:authorities
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:10:17-68
+	android:exported
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:11:17-41
+	android:name
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:9:17-69
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:14:13-16:58
+	android:resource
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:16:21-55
+	android:name
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:15:21-71
+uses-sdk
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		ADDED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+		INJECTED from /home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml

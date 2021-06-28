@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "applicationId": "com.nextly.rnprintconnect",
+  "variantType": "LIBRARY",
+  "elements": [
+    {
+      "outputType": {
+        "type": "AAPT_FRIENDLY_MERGED_MANIFESTS"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 28,
+        "versionName": "1.2.3",
+        "outputFile": "react-native-send-intent-debug.aar",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "com.nextly.rnprintconnect",
+        "split": ""
+      }
+    }
+  ]
+}

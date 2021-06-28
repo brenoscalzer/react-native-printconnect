@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nextly.rnprintconnect"
+    android:versionCode="28"
+    android:versionName="1.2.3" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="29" />
+
+    <application>
+        <service
+            android:name="com.nextly.rnprintconnect.RNSendIntentModule"
+            android:exported="true" />
+
+        <provider
+            android:name="com.nextly.rnprintconnect.FileProvider"
+            android:authorities="dollar_openBracket_applicationId_closeBracket.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

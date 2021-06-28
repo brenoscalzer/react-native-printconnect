@@ -1,0 +1,41 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.nextly.rnprintconnect"
+4    android:versionCode="28"
+5    android:versionName="1.2.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="18"
+8-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml
+10
+11    <application>
+11-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:4:5-20:19
+12        <service
+12-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:5:9-7:43
+13            android:name="com.nextly.rnprintconnect.RNSendIntentModule"
+13-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:6:17-51
+14            android:exported="true" />
+14-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:7:17-40
+15
+16        <provider
+16-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:8:9-18:20
+17            android:name="com.nextly.rnprintconnect.FileProvider"
+17-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:9:17-69
+18            android:authorities="${applicationId}.fileprovider"
+18-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:10:17-68
+19            android:exported="false"
+19-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:11:17-41
+20            android:grantUriPermissions="true" >
+20-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:12:17-51
+21            <meta-data
+21-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:14:13-16:58
+22                android:name="android.support.FILE_PROVIDER_PATHS"
+22-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:15:21-71
+23                android:resource="@xml/file_paths" />
+23-->/home/breno/Projects/cubby-enterprise-app/node_modules/react-native-send-intent/android/src/main/AndroidManifest.xml:16:21-55
+24        </provider>
+25    </application>
+26
+27</manifest>
