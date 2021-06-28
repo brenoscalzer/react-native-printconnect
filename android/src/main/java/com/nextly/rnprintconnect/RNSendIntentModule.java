@@ -215,7 +215,44 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void print(String templateName, ReadableMap variables, final Promise promise) {
+    public void print(ReadableMap variables, final Promise promise) {
+      String templateData = "CT~~CD,~CC^~CT~\n" +
+                "^XA\n" +
+                "~TA000\n" +
+                "~JSN\n" +
+                "^LT0\n" +
+                "^MNW\n" +
+                "^MTT\n" +
+                "^PON\n" +
+                "^PMN\n" +
+                "^LH0,0\n" +
+                "^JMA\n" +
+                "^PR2,2\n" +
+                "~SD15\n" +
+                "^JUS\n" +
+                "^LRN\n" +
+                "^CI27\n" +
+                "^PA0,1,1,0\n" +
+                "^XZ\n" +
+                "^XA\n" +
+                "^MMT\n" +
+                "^PW1800\n" +
+                "^LL1200\n" +
+                "^LS0\n" +
+                "^BY13,3,245^FT235,855^BCN,,Y,N\n" +
+                "^FH\^FD>:%TITLE%^FS\n" +
+                "^FT235,341^A0N,164,492^FH\^CI28^FD%BARCODE%^FS^CI27\n" +
+                "^PQ1,0,1,Y\n" +
+                "^XZ\n";
+
+        byte[] templateBytes = null;
+        try {
+          // Convert template ZPL string to a UTF-8 encoded byte array, which will be sent as an extra with the intent
+          templateBytes = templateData.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+          // Hand
+        }
+
         HashMap<String, String> variableData = new HashMap<>();
         ReadableMapKeySetIterator it = variables.keySetIterator();
         while(it.hasNextKey()) {
@@ -224,9 +261,9 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.zebra.printconnect",
-          "com.zebra.printconnect.print.TemplatePrintService"));
-        intent.putExtra("com.zebra.printconnect.PrintService.TEMPLATE_FILE_NAME", templateName);
+          "com.zebra.printconnect.print.TemplatePrintWithContentService"));
         intent.putExtra("com.zebra.printconnect.PrintService.VARIABLE_DATA", variableData);
+        intent.putExtra("com.zebra.printconnect.PrintService.TEMPLATE_DATA", templateBytes); // Template ZPL as UTF-8 encoded byte array
         intent.putExtra("com.zebra.printconnect.PrintService.RESULT_RECEIVER", buildIPCSafeReceiver(new
             ResultReceiver(null) {
             @Override

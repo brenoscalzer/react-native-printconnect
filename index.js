@@ -3,7 +3,7 @@ var RNSendIntentAndroid = NativeModules.SendIntentAndroid || {};
 
 var SendIntentAndroid = {
     openApp(packageName, extras) {
-        return RNSendIntentAndroid.print(templateName, variables || {});
+        return RNSendIntentAndroid.print(variables || {});
     },
 };
 
