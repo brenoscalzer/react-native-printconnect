@@ -59,6 +59,8 @@ import okio.Okio;
 
 public class RNSendIntentModule extends ReactContextBaseJavaModule {
 
+    private static final int FILE_SELECT_CODE = 20190903;
+
     private ReactApplicationContext reactContext;
     private Callback mCallback;
 
@@ -214,6 +216,15 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         return true;
     }
 
+    // private ResultReceiver buildIPCSafeReceiver(ResultReceiver actualReceiver) {
+    //     Parcel parcel = Parcel.obtain();
+    //     actualReceiver.writeToParcel(parcel, 0);
+    //     parcel.setDataPosition(0);
+    //     ResultReceiver receiverForSending = ResultReceiver.CREATOR.createFromParcel(parcel);
+    //     parcel.recycle();
+    //     return receiverForSending;
+    // }
+
     @ReactMethod
     public void print(ReadableMap variables, final Promise promise) {
       String templateData = "CT~~CD,~CC^~CT~\n" +
@@ -240,8 +251,8 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
                 "^LL1200\n" +
                 "^LS0\n" +
                 "^BY13,3,245^FT235,855^BCN,,Y,N\n" +
-                "^FH\^FD>:%TITLE%^FS\n" +
-                "^FT235,341^A0N,164,492^FH\^CI28^FD%BARCODE%^FS^CI27\n" +
+                "^FH\\^FD>:%TITLE%^FS\n" +
+                "^FT235,341^A0N,164,492^FH\\^CI28^FD%BARCODE%^FS^CI27\n" +
                 "^PQ1,0,1,Y\n" +
                 "^XZ\n";
 
@@ -249,8 +260,9 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         try {
           // Convert template ZPL string to a UTF-8 encoded byte array, which will be sent as an extra with the intent
           templateBytes = templateData.getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
           // Hand
+          promise.resolve(false);
         }
 
         HashMap<String, String> variableData = new HashMap<>();
@@ -264,19 +276,30 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
           "com.zebra.printconnect.print.TemplatePrintWithContentService"));
         intent.putExtra("com.zebra.printconnect.PrintService.VARIABLE_DATA", variableData);
         intent.putExtra("com.zebra.printconnect.PrintService.TEMPLATE_DATA", templateBytes); // Template ZPL as UTF-8 encoded byte array
-        intent.putExtra("com.zebra.printconnect.PrintService.RESULT_RECEIVER", buildIPCSafeReceiver(new
-            ResultReceiver(null) {
-            @Override
-            protected void onReceiveResult(int resultCode, Bundle resultData) {
-                if (resultCode == 0) { // Result code 0 indicates success
-                    promise.resolve(true);
-                } else {
-                    promise.resolve(false);
-                    // String errorMessage = resultData.getString("com.zebra.printconnect.PrintService.ERROR_MESSAGE");
-                }
-            }
-        }));
+        // intent.putExtra("com.zebra.printconnect.PrintService.RESULT_RECEIVER", buildIPCSafeReceiver(new
+        //     ResultReceiver(null) {
+        //     @Override
+        //     protected void onReceiveResult(int resultCode) {
+        //         if (resultCode == 0) { // Result code 0 indicates success
+        //             promise.resolve(true);
+        //         } else {
+        //             promise.resolve(false);
+        //             // String errorMessage = resultData.getString("com.zebra.printconnect.PrintService.ERROR_MESSAGE");
+        //         }
+        //     }
+        // }));
+        promise.resolve(true);
         this.reactContext.startActivity(intent);
     }
+
+    private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+      @Override
+      public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+          if (requestCode == FILE_SELECT_CODE && data!=null) {
+              Uri uri = data.getData();
+              mCallback.invoke(uri.getPath());
+          }
+      }
+    };
 
 }
