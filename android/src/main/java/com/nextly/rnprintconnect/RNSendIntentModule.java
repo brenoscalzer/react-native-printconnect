@@ -289,7 +289,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         //     }
         // }));
         promise.resolve(true);
-        this.reactContext.startActivity(intent);
+        this.reactContext.startService(intent);
     }
 
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
