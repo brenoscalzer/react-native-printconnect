@@ -292,6 +292,75 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         this.reactContext.startService(intent);
     }
 
+    @ReactMethod
+    public void printBarcode(String barcode, final Promise promise) {
+      String templateData =
+                "^XA\n" +
+                "^MMT\n" +
+                "^PW1800\n" +
+                "^LL1200\n" +
+                "^LS0\n" +
+                "^BY13,3,245^FT235,855^BCN,,Y,N\n" +
+                "^FT235,341^A0N,164,492^FH\\^CI28^FD%BARCODE%^FS^CI27\n" +
+                "^PQ1,0,1,Y\n" +
+                "^XZ\n";
+
+        byte[] templateBytes = null;
+
+        try {
+          templateBytes = templateData.getBytes("UTF-8");
+        } catch (Exception e) {
+          promise.resolve(false);
+        }
+
+        HashMap<String, String> variableData = new HashMap<>();
+        variableData.put('%BARCODE%', barcode);
+
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.zebra.printconnect",
+          "com.zebra.printconnect.print.TemplatePrintWithContentService"));
+        intent.putExtra("com.zebra.printconnect.PrintService.VARIABLE_DATA", variableData);
+        intent.putExtra("com.zebra.printconnect.PrintService.TEMPLATE_DATA", templateBytes); // Template ZPL as UTF-8 encoded byte array
+
+        promise.resolve(true);
+        this.reactContext.startService(intent);
+    }
+
+    @ReactMethod
+    public void printBarcodeText(String barcode, String text, final Promise promise) {
+        String templateData = // correct
+                "^XA\n" +
+                "^MMT\n" +
+                "^PW719\n" +
+                "^LL240\n" +
+                "^LS0\n" +
+                "^BY3,3,175^FT162,183^BCN,,Y,N\n" +
+                "^FH\\^FD>;%BARCODE%^FS\n" +
+                "^FT27,46^A0N,28,28^FH\\^CI28^FD%TEXT%^FS^CI27\n" +
+                "^PQ1,0,1,Y\n" +
+                "^XZ\n";
+
+        byte[] templateBytes = null;
+        try {
+          templateBytes = templateData.getBytes("UTF-8");
+        } catch (Exception e) {
+          promise.resolve(false);
+        }
+
+        HashMap<String, String> variableData = new HashMap<>();
+        variableData.put('%BARCODE%', barcode);
+        variableData.put('%TEXT%', text);
+
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.zebra.printconnect",
+          "com.zebra.printconnect.print.TemplatePrintWithContentService"));
+        intent.putExtra("com.zebra.printconnect.PrintService.VARIABLE_DATA", variableData);
+        intent.putExtra("com.zebra.printconnect.PrintService.TEMPLATE_DATA", templateBytes); // Template ZPL as UTF-8 encoded byte array
+
+        promise.resolve(true);
+        this.reactContext.startService(intent);
+    }
+
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
       @Override
       public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
