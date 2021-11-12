@@ -334,9 +334,9 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
                 "^PW719\n" +
                 "^LL240\n" +
                 "^LS0\n" +
-                "^BY3,3,175^FT162,183^BCN,,Y,N\n" +
+                "^BY3,3,59^FT162,67^BCN,,Y,N\n" +
                 "^FH\\^FD>;%BARCODE%^FS\n" +
-                "^FT27,46^A0N,28,28^FH\\^CI28^FD%TEXT%^FS^CI27\n" +
+                "^FT32,46^A0N,28,28^FH\\^CI28^FD%TEXT%^FS^CI27" +
                 "^PQ1,0,1,Y\n" +
                 "^XZ\n";
 
