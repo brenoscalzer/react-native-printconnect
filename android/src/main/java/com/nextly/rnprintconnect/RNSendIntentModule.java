@@ -314,7 +314,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         }
 
         HashMap<String, String> variableData = new HashMap<>();
-        variableData.put('%BARCODE%', barcode);
+        variableData.put("%BARCODE%", barcode);
 
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.zebra.printconnect",
@@ -348,8 +348,8 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         }
 
         HashMap<String, String> variableData = new HashMap<>();
-        variableData.put('%BARCODE%', barcode);
-        variableData.put('%TEXT%', text);
+        variableData.put("%BARCODE%", barcode);
+        variableData.put("%TEXT%", text);
 
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.zebra.printconnect",
